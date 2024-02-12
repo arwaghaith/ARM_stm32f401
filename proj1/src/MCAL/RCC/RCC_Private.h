@@ -1,5 +1,8 @@
 /* BEGIN: ed8c6549bwf9 */
 /* RCC Base Address*/
+
+#ifndef RCC_PRIVATE_H
+#define RCC_PRIVATE_H
 #define RCC_BASE_ADDRESS 0x40023800
 
 /* RCC Registers*/
@@ -101,6 +104,8 @@
 #define RCC_CIR_PLLI2SRDYC 21
 #define RCC_CIR_PLLSAIRDYC 22
 #define RCC_CIR_CSSC 23
+
+#endif
 
 
 
