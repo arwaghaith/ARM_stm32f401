@@ -3,10 +3,14 @@
 
 #ifndef RCC_PRIVATE_H
 #define RCC_PRIVATE_H
+
+/***************************************************************************************************************************/
+                                           /* RCC Base Address*/
+/***************************************************************************************************************************/                                          
 #define RCC_BASE_ADDRESS 0x40023800
 
-/* RCC Registers*/
-
+/***************************************************************************************************************************/
+                                           /* RCC Registers addresses*/
 /***************************************************************************************************************************/
 
 #define RCC_CR          (*(volatile uint32_t*)(RCC_BASE_ADDRESS + 0x00))    /* RCC clock control register */
@@ -15,7 +19,6 @@
 #define RCC_CIR         (*(volatile uint32_t*)(RCC_BASE_ADDRESS + 0x0C))    /* RCC clock interrupt register */
 #define RCC_AHB1RSTR    (*(volatile uint32_t*)(RCC_BASE_ADDRESS + 0x10))    /* RCC AHB1 peripheral reset register */
 #define RCC_AHB2RSTR    (*(volatile uint32_t*)(RCC_BASE_ADDRESS + 0x14))    /* RCC AHB2 peripheral reset register */
-#define RCC_AHB3RSTR    (*(volatile uint32_t*)(RCC_BASE_ADDRESS + 0x18))    /* RCC AHB3 peripheral reset register */
 #define RCC_APB1RSTR    (*(volatile uint32_t*)(RCC_BASE_ADDRESS + 0x20))    /* RCC APB1 peripheral reset register */
 #define RCC_APB2RSTR    (*(volatile uint32_t*)(RCC_BASE_ADDRESS + 0x24))    /* RCC APB2 peripheral reset register */
 #define RCC_AHB1ENR     (*(volatile uint32_t*)(RCC_BASE_ADDRESS + 0x30))    /* RCC AHB1 peripheral clock enable register */
@@ -35,7 +38,62 @@
 #define RCC_DCKCFGR     (*(volatile uint32_t*)(RCC_BASE_ADDRESS + 0x8C))    /* RCC Dedicated Clock Configuration Register */
 /***************************************************************************************************************************/
 
+
+/****************************************************************************************************************************/
+                                           /*Register Masks*/
+/****************************************************************************************************************************/
+
+/*Selecting System Clock Mask*/
+#define RCC_CFGR_SW_MASK 0x3
+
+/*Selecting System Clock Status Mask*/
+#define RCC_CFGR_SWS_MASK 0xC
+
+/*Selecting PLL Source Mask*/
+# define PLL_M_MASK 0x3F
+# define PLL_N_MASK 0x7FC0
+# define PLL_P_MASK 0x30000
+# define PLL_SRC_MASK 0x400000
+# define PLL_Q_MASK 0xF000000
+
+/*RCC_PLLCFGR_MASK*/
+
+#define HSI_SW_MASK 0x0
+#define HSE_SW_MASK 0x1
+#define PLL_SW_MASK 0x2
+
+/*RCC_CFGR_PRESCALAR_MASK*/
+
+#define RCC_HPRE_MASK 0xF0
+#define RCC_PPRE1_MASK 0x1C00
+#define RCC_PPRE2_MASK 0xE000
+
+
+
+/****************************************************************************************************************************/
+                                           /*Register shifts*/
+/****************************************************************************************************************************/                                           
+
+
+/*Selecting prescalar shift*/
+
+#define RCC_HPRE_SHIFT 4
+#define RCC_PPRE1_SHIFT 10
+#define RCC_PPRE2_SHIFT 13
+
+/*configuring the PLL shift*/
+
+#define RCC_PLLCFGR_PLLM_SHIFT 0
+#define RCC_PLLCFGR_PLLN_SHIFT 6
+#define RCC_PLLCFGR_PLLP_SHIFT 16
+#define RCC_PLLCFGR_PLLSRC_SHIFT 22
+#define RCC_PLLCFGR_PLLQ_SHIFT 24
+/****************************************************************************************************************************/
+
+
 /* RCC_CR Register Bits*/
+
+
 #define RCC_CR_HSION    0
 #define RCC_CR_HSIRDY   1
 #define RCC_CR_HSITRIM  3
@@ -104,6 +162,8 @@
 #define RCC_CIR_PLLI2SRDYC 21
 #define RCC_CIR_PLLSAIRDYC 22
 #define RCC_CIR_CSSC 23
+
+/**************************************************************************************/
 
 #endif
 
