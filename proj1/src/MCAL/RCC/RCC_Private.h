@@ -70,6 +70,8 @@
 
 
 
+
+
 /****************************************************************************************************************************/
                                            /*Register shifts*/
 /****************************************************************************************************************************/                                           
@@ -164,6 +166,172 @@
 #define RCC_CIR_CSSC 23
 
 /**************************************************************************************/
+
+/**********************************************************************************/
+/*RCC_AHB1 peripheral register*/
+/*clock reset register */
+/*********************************************************************************/
+#define DMA2RST 22
+#define DMA1RST 21
+#define CRCRST 12
+#define GPIOHRST 7
+#define GPIOERST 4
+#define GPIODRST 3
+#define GPIOCRST 2
+#define GPIOBRST 1
+
+/*****************************************************************************************/
+
+/*RCC_AHB2 peripheral register*/
+/*clock reset register */
+#define OTGFSRST 7
+
+/*****************************************************************************************/
+
+/*RCC_APB1 peripheral register*/
+/*clock reset register */
+#define PWRRST 28
+#define I2C3RST 23
+#define I2C2RST 22
+#define I2C1RST 21
+#define USART3RST 18
+#define SPI3RST 15
+#define SPI2RST 14
+#define WWDGRST 11
+#define TIM5RST 3
+#define TIM4RST 2
+#define TIM3RST 1
+#define TIM2RST 0
+/*****************************************************************************************/
+
+/*RCC_APB2 peripheral register*/
+    /*clock reset register */
+#define TIM11RST 18
+#define TIM10RST 17
+#define TIM9RST 16
+#define SYSCFGRST 14
+#define SPI5RST 20
+#define SPI4RST 15
+#define SPI1RST 12
+#define SDIORST 11
+#define ADC1RST 8
+#define USART6RST 5
+#define USART1RST 4
+#define TIM8RST 1
+#define TIM1RST 0
+/*****************************************************************************************/
+
+/*RCC_AHB1 peripheral register*/
+
+/*clock enable register */
+#define DMA2EN 22
+#define DMA1EN 21
+#define CRCEN 12
+#define GPIOHEN 7
+#define GPIOEEN 4
+#define GPIODEN 3
+#define GPIOCEN 2
+#define GPIOBEN 1
+#define GPIOAEN 0
+/*****************************************************************************************/
+
+/*RCC_AHB2 peripheral register*/
+/*clock enable register */
+#define OTGFSEN 7
+/*****************************************************************************************/
+
+/*RCC_APB1 peripheral register*/
+/*clock enable register */
+#define PWREN 28
+#define I2C3EN 23
+#define I2C2EN 22
+#define I2C1EN 21
+#define USART3EN 18
+#define SPI3EN 15
+#define SPI2EN 14
+#define WWDGEN 11
+#define TIM5EN 3
+#define TIM4EN 2
+#define TIM3EN 1
+#define TIM2EN 0
+/*****************************************************************************************/
+
+/*RCC_APB2 peripheral register*/
+/*clock enable register */
+#define TIM11EN 18
+#define TIM10EN 17
+#define TIM9EN 16
+#define SYSCFGEN 14
+#define SPI4EN 13
+#define SPI1EN 12
+#define SDIOEN 11
+#define ADC1EN 8
+#define USART6EN 5
+#define USART1EN 4
+#define TIM8EN 1
+#define TIM1EN 0
+/*****************************************************************************************/
+
+/*RCC_AHB1 peripheral register*/
+
+/*clock low power enable register */
+
+#define DMA2LPEN 22
+#define DMA1LPEN 21
+#define SRAM2LPEN 17
+#define SRAM1LPEN 16
+#define FLITFLPEN 15
+#define CRCLPEN 12
+#define GPIOHLPEN 7
+#define GPIOELPEN 4
+#define GPIODLPEN 3
+#define GPIOCLPEN 2
+#define GPIOBLPEN 1
+#define GPIOALPEN 0
+/*****************************************************************************************/
+
+/*RCC_AHB2 peripheral register*/
+
+/*clock low power enable register */
+#define OTGFSLPEN 7
+/*****************************************************************************************/
+
+/*RCC_APB1 peripheral register*/
+
+/*clock low power enable register */
+#define PWRLPEN 28
+#define I2C3LPEN 23
+#define I2C2LPEN 22
+#define I2C1LPEN 21
+#define USART3LPEN 18
+#define SPI3LPEN 15
+#define SPI2LPEN 14
+#define WWDGLPEN 11
+#define TIM5LPEN 3
+#define TIM4LPEN 2
+#define TIM3LPEN 1
+#define TIM2LPEN 0
+/*****************************************************************************************/
+
+/*RCC_APB2 peripheral register*/
+/*clock low power enable register */
+
+#define TIM11LPEN 18
+#define TIM10LPEN 17
+#define TIM9LPEN 16
+#define SYSCFGLPEN 14
+#define SPI5LPEN 20
+#define SPI4LPEN 13
+#define SPI1LPEN 12
+#define SDIOLPEN 11
+#define ADC1LPEN 8
+#define USART6LPEN 5
+#define USART1LPEN 4
+#define TIM8LPEN 1
+#define TIM1LPEN 0
+/*****************************************************************************************/
+
+#define RCC_PLLCFGR_RESET_VALUE 0x24003010
 
 #endif
 
