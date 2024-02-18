@@ -1,5 +1,5 @@
 /*
- * This file is part of the ÂµOS++ distribution.
+ * This file is part of the µOS++ distribution.
  *   (https://github.com/micro-os-plus)
  * Copyright (c) 2014 Liviu Ionescu.
  *
@@ -28,9 +28,12 @@
 // ----------------------------------------------------------------------------
 
 #include "LIB/STD_TYPES.h"
-#include "LIB/STD_MATH.h"
-#include "MCAL/RCC/RCC_Private.h"
 #include "MCAL/RCC/RCC.h"
+#include "MCAL/GPIO/GPIO.h"
+#include "HAL/LED/LEDCfg.h"
+#include "HAL/LED/LED.h"
+#include "HAL/switch/switch.h"
+
 
 // ----------------------------------------------------------------------------
 //
@@ -50,16 +53,26 @@
 
 
 int
-main(int argc, char* argv[])
+main()
 {
-  // At this stage the system clock should have already been configured
-  // at high speed.
+  RCC_ControlClock(RCC_HSE,CLK_ON);
+  RCC_ConfigurePLL(15,144,5,4,PLLSRC_HSE);
+  RCC_ConfigurePrescalar(RCC_AHB_PRESCALAR_2,RCC_AHB_SCALER);	/*HClK = 30 MHz*/
+    RCC_SelectSysClk(RCC_PLL);
 
-  // Infinite loop
-  while (1)
-    {
-       // Add your code here.
-    }
+  RCC_ControlClock(RCC_HSE,CLK_ON);
+  RCC_ControlPeripheralClock(RCC_AHB1,GPIOAEN,CLK_ON);
+
+
+  while(1)
+  {
+
+  }
+
+
+
+
+
 }
 
 

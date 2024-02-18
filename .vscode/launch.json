@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/ARM/stm32f401_workspace3/proj1/src/MCAL/GPIO",
-      "program": "c:/ARM/stm32f401_workspace3/proj1/src/MCAL/GPIO/build/Debug/outDebug",
+      "cwd": "c:/ARM/stm32f401_workspace3/ARM_stm32f401/proj1/src/MCAL/GPIO",
+      "program": "c:/ARM/stm32f401_workspace3/ARM_stm32f401/proj1/src/MCAL/GPIO/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
