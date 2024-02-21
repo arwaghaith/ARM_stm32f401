@@ -1,5 +1,5 @@
 /*
- * This file is part of the µOS++ distribution.
+ * This file is part of the ï¿½OS++ distribution.
  *   (https://github.com/micro-os-plus)
  * Copyright (c) 2014 Liviu Ionescu.
  *
@@ -28,6 +28,8 @@
 // ----------------------------------------------------------------------------
 
 #include "LIB/STD_TYPES.h"
+#include "MCAL/RCC/RCC_private.h"
+
 #include "MCAL/RCC/RCC.h"
 #include "MCAL/GPIO/GPIO.h"
 #include "HAL/LED/LEDCfg.h"
@@ -55,13 +57,11 @@
 int
 main()
 {
-  RCC_ControlClock(RCC_HSE,CLK_ON);
-  RCC_ConfigurePLL(15,144,5,4,PLLSRC_HSE);
-  RCC_ConfigurePrescalar(RCC_AHB_PRESCALAR_2,RCC_AHB_SCALER);	/*HClK = 30 MHz*/
-    RCC_SelectSysClk(RCC_PLL);
-
-  RCC_ControlClock(RCC_HSE,CLK_ON);
+RCC_ControlClock(RCC_HSE,CLK_ON);
+  RCC_SelectSysClk(RCC_HSE);
   RCC_ControlPeripheralClock(RCC_AHB1,GPIOAEN,CLK_ON);
+  LED_Init();
+  LED_SetState(LED_GREEN,LED_ON);
 
 
   while(1)

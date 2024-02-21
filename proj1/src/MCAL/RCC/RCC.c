@@ -75,6 +75,8 @@ RCC_ERROR_STATUS RCC_ControlClock(RCC_CLK_TYPE clock_type, RCC_STATE state)
             switch (state)
             {
                 case CLK_ON:
+                    SET_BIT(RCC_CR, RCC_CR_HSEON);
+
                     while(!GET_BIT(RCC_CR, RCC_CR_HSERDY) && loc_RCC_CR_counter < 1000000)
             {
                 loc_RCC_CR_counter++;
@@ -105,6 +107,8 @@ RCC_ERROR_STATUS RCC_ControlClock(RCC_CLK_TYPE clock_type, RCC_STATE state)
             switch (state)
             {
                 case CLK_ON:
+                    SET_BIT(RCC_CR, RCC_CR_PLLON);
+
                      while(!GET_BIT(RCC_CR, RCC_CR_PLLRDY) && loc_RCC_CR_counter < 1000000)
             {
                 loc_RCC_CR_counter++;

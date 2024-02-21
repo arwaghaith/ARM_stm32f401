@@ -1,4 +1,5 @@
-src/main.o: ../src/main.c ../src/LIB/STD_TYPES.h ../src/MCAL/RCC/RCC.h \
+src/main.o: ../src/main.c ../src/LIB/STD_TYPES.h \
+ ../src/MCAL/RCC/RCC_private.h ../src/MCAL/RCC/RCC.h \
  ../src/MCAL/RCC/../../LIB/STD_TYPES.h ../src/MCAL/GPIO/GPIO.h \
  ../src/MCAL/GPIO/../../LIB/STD_TYPES.h ../src/MCAL/GPIO/GPIO_private.h \
  ../src/HAL/LED/LEDCfg.h ../src/HAL/LED/../../LIB/STD_TYPES.h \
@@ -7,6 +8,8 @@ src/main.o: ../src/main.c ../src/LIB/STD_TYPES.h ../src/MCAL/RCC/RCC.h \
  ../src/HAL/switch/../../MCAL/GPIO/GPIO.h
 
 ../src/LIB/STD_TYPES.h:
+
+../src/MCAL/RCC/RCC_private.h:
 
 ../src/MCAL/RCC/RCC.h:
 
