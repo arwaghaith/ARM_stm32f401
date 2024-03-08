@@ -126,3 +126,10 @@ void Logger::configureLogging() {
 OutputChannel Logger::getChannelType() const {
     return channelType;
 }
+<<<<<<< HEAD
+=======
+
+int Logger::getLogInterval() const {
+        return logIntervalSeconds.count(); // Assuming logIntervalSeconds is the stored log interval
+}
+>>>>>>> 699bb89f4afee8e0d956818aca0da68d13c00f4c

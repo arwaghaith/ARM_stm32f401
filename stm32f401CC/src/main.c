@@ -30,9 +30,11 @@
 #include "LIB/STD_TYPES.h"
 #include "MCAL/RCC/RCC.h"
 #include "MCAL/GPIO/GPIO.h"
+#include "MCAL/NVIC/NVIC.h"
 #include "HAL/LED/LEDCfg.h"
 #include "HAL/LED/LED.h"
 #include "HAL/switch/switch.h"
+
 
 
 // ----------------------------------------------------------------------------
@@ -55,38 +57,89 @@
 int
 main()
 {
-  uint32_t state;
-  RCC_ControlClock(RCC_HSE,CLK_ON);
-  RCC_SelectSysClk(RCC_HSE);
-  RCC_ControlPeripheralClock(RCC_AHB1,GPIOBEN,CLK_ON);
-  RCC_ControlPeripheralClock(RCC_AHB1,GPIOCEN,CLK_ON);
-  LED_Init();
-  Switch_Init();
+//   uint32_t state;
+//   RCC_ControlClock(RCC_HSE,CLK_ON);
+//   RCC_SelectSysClk(RCC_HSE);
+//   RCC_ControlPeripheralClock(RCC_AHB1,GPIOBEN,CLK_ON);
+//   RCC_ControlPeripheralClock(RCC_AHB1,GPIOCEN,CLK_ON);
+//   LED_Init();
+//   Switch_Init();
 
 
 
-  while(1)
-  {
-  Switch_GetState(SWITCH_1, &state);
-if(state==SWITCH_PRESSED)
+//   while(1)
+//   {
+//   Switch_GetState(SWITCH_1, &state);
+// if(state==SWITCH_PRESSED)
 
-{
-  LED_SetState(LED_GREEN,LED_ON);
-}  
-Switch_GetState(SWITCH_2, &state);
-if(state==SWITCH_PRESSED)
+// {
+//   LED_SetState(LED_GREEN,LED_ON);
+// }  
+// Switch_GetState(SWITCH_2, &state);
+// if(state==SWITCH_PRESSED)
 
-{
-  LED_SetState(LED_GREEN,LED_OFF);
-}  
+// {
+//   LED_SetState(LED_GREEN,LED_OFF);
+// }  
 
-  }
+//   }
+
+RCC_ControlClock(RCC_HSE,CLK_ON);
+RCC_SelectSysClk(RCC_HSE);
+
+//NVIC_Status loc_NVIC_Status = NVIC_NOK;
+
+LED_Init();
+NVIC_INIT();
 
 
+NVIC_SetPremptionPriority(DMA1_Channel1_IRQn,0b0011);
+NVIC_SetSubPriority(DMA1_Channel1_IRQn,0b00111);
+
+NVIC_EnableInterrupt(EXTI0_IRQn);
+
+NVIC_SetPendingFlag(EXTI0_IRQn);
+NVIC_EnableInterrupt(EXTI1_IRQn);
+
+NVIC_DisableInterrupt(EXTI1_IRQn);
+NVIC_DisableInterrupt(EXTI0_IRQn);
+
+
+
+  // Infinite loop
+  while (1)
+    {
+       // Add your code here.
+
+    }
+
+
+
+return 0;
 
 
 
 }
 
+void EXTI1_IRQHandler(void)
+{
+	uint8_t Local_status=2;
+	uint8_t Local_status2=3;
+	LED_SetState(LED_RED,LED_ON);
+	NVIC_SetPendingFlag(EXTI0_IRQn);
+
+	LED_SetState(LED_GREEN,LED_ON);
+
+}
+
+void EXTI0_IRQHandler(void)
+{
+	uint8_t Local_status=2;
+	uint8_t Local_status2=3;
+
+	LED_SetState(LED_GREEN,LED_ON);
+
+
+}
 
 // ----------------------------------------------------------------------------

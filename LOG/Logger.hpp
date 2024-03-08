@@ -9,6 +9,11 @@
 #include <cstring>
 #include <cstdarg>
 #include <cstdlib>
+<<<<<<< HEAD
+=======
+#include <chrono>
+using namespace std;
+>>>>>>> 699bb89f4afee8e0d956818aca0da68d13c00f4c
 
 enum class LogLevel {
     INFO = 0,
@@ -24,6 +29,7 @@ enum class OutputChannel {
 
 class Logger {
 public:
+<<<<<<< HEAD
     Logger();
     ~Logger();
     
@@ -37,6 +43,24 @@ private:
     OutputChannel channelType;
     std::ostream* outputChannel;
     LogLevel userLogLevel;
+=======
+            Logger();
+            ~Logger();
+            
+            void setOutputChannel(FILE* output);
+            void setLogFile(const std::string& logFileName);
+            void write(LogLevel level, const char* format, ...);
+            void configureLogging();
+            OutputChannel getChannelType() const;
+            int getLogInterval() const;
+
+        private:
+            OutputChannel channelType;
+            std::ostream* outputChannel;
+            LogLevel userLogLevel;
+            std::chrono::seconds logIntervalSeconds;
+
+>>>>>>> 699bb89f4afee8e0d956818aca0da68d13c00f4c
 };
 
 #endif // LOGGER_HPP

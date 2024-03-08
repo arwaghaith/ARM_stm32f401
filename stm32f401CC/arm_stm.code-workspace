@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "D:/ITI/arm_stm"
+		},
+		{
+			"name": "arrrm",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"type_traits": "c"
+		}
+	}
+}
