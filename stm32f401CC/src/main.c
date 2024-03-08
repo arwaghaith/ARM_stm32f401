@@ -93,8 +93,8 @@ LED_Init();
 NVIC_INIT();
 
 
-NVIC_SetPremptionPriority(DMA1_Channel1_IRQn,0b0011);
-NVIC_SetSubPriority(DMA1_Channel1_IRQn,0b00111);
+NVIC_SetPremptionPriority(EXTI0_IRQn,0b0011);
+NVIC_SetSubPriority(EXTI0_IRQn,0b00111);
 
 NVIC_EnableInterrupt(EXTI0_IRQn);
 
