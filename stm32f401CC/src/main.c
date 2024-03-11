@@ -34,7 +34,6 @@
 #include "HAL/LED/LEDCfg.h"
 #include "HAL/LED/LED.h"
 #include "HAL/switch/switch.h"
-#include "MCAL/STK/STK.h"
 
 
 
@@ -55,23 +54,6 @@
 // the end of this function, used to pop the compiler diagnostics status.
 
 
-
-
-void Toggle_LED_GREEN(void)
-{
- 
-  uint32_t state;
-  LED_getState(LED_GREEN,&state);
-  if(state==LED_ON)
-  {
-    LED_SetState(LED_GREEN,LED_OFF);
-  }
-  else
-  {
-    LED_SetState(LED_GREEN,LED_ON);
-  }
-  
-}
 int
 main()
 {
@@ -102,7 +84,7 @@ main()
 
 //   }
 
-/*RCC_ControlClock(RCC_HSE,CLK_ON);
+RCC_ControlClock(RCC_HSE,CLK_ON);
 RCC_SelectSysClk(RCC_HSE);
 
 //NVIC_Status loc_NVIC_Status = NVIC_NOK;
@@ -133,52 +115,31 @@ NVIC_DisableInterrupt(EXTI0_IRQn);
 
 
 
-return 0;*/
+return 0;
 
 
 
-// RCC_ControlClock(RCC_HSE,CLK_ON);
-// RCC_SelectSysClk(RCC_HSE);
-RCC_ControlPeripheralClock(RCC_AHB1,GPIOAEN,CLK_ON);
-RCC_ControlPeripheralClock(RCC_AHB1,GPIOBEN,CLK_ON);
-RCC_ControlPeripheralClock(RCC_AHB1,GPIOCEN,CLK_ON);
-LED_Init();
-STK_Init(STK_AHB,STK_PERIOD_INTERVAL,16000000,Toggle_LED_GREEN);
-STK_Start();
-while(1)
+}
+
+void EXTI1_IRQHandler(void)
 {
+	uint8_t Local_status=2;
+	uint8_t Local_status2=3;
+	LED_SetState(LED_RED,LED_ON);
+	NVIC_SetPendingFlag(EXTI0_IRQn);
 
- 
-
-
-
-}
-
-
-
-
+	LED_SetState(LED_GREEN,LED_ON);
 
 }
 
-// void EXTI1_IRQHandler(void)
-// {
-// 	uint8_t Local_status=2;
-// 	uint8_t Local_status2=3;
-// 	LED_SetState(LED_RED,LED_ON);
-// 	NVIC_SetPendingFlag(EXTI0_IRQn);
+void EXTI0_IRQHandler(void)
+{
+	uint8_t Local_status=2;
+	uint8_t Local_status2=3;
 
-// 	LED_SetState(LED_GREEN,LED_ON);
-
-// }
-
-// void EXTI0_IRQHandler(void)
-// {
-// 	uint8_t Local_status=2;
-// 	uint8_t Local_status2=3;
-
-// 	LED_SetState(LED_GREEN,LED_ON);
+	LED_SetState(LED_GREEN,LED_ON);
 
 
-// }
+}
 
 // ----------------------------------------------------------------------------
