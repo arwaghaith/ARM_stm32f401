@@ -71,7 +71,7 @@ STK_status STK_SetTimeMS(uint32_t Copy_Time)
     STK_status Local_Status = STK_OK;
     if (Copy_Time <= STK_LOAD_MAX_VAL)
     {
-        STK->LOAD = Copy_Time*SYS_CLK/MS_TO_US*(~((STK->CTRL & STK_CLK_MASK)>>STK_CLK_SHIFT)*AHB_PRESCALER);
+        STK->LOAD = ((Copy_Time*SYS_CLK)/MS_TO_US/AHB_PRESCALER);
     }
     else
     {

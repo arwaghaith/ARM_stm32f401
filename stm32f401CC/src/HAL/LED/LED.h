@@ -37,5 +37,6 @@ LED_Error_Status LED_SetState(LED_NAME led,uint32_t state);
 LED_Error_Status LED_getState(LED_NAME led,uint32_t *state);
 
 
+void Toggle_LED(LED_NAME led);
 
 #endif

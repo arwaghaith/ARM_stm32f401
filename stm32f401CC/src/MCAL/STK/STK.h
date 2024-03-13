@@ -63,7 +63,7 @@ STK_status STK_Init(STK_CLK Copy_CLK, STK_MODE Copy_Mode,uint32_t Copy_Load, voi
 @return              - STK_status
 */
 /***************************************************************************************************/
-STK_status STK_SetTime(uint32_t Copy_Time);
+STK_status STK_SetTimeMS(uint32_t Copy_Time);
 
 /*
 @fn                  - STK_SetCLK

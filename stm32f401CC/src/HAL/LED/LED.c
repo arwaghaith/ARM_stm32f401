@@ -65,3 +65,19 @@ LED_Error_Status LED_getState(LED_NAME led,uint32_t *state)
     return local_Error_status;
 
 }
+
+
+void Toggle_LED(LED_NAME led)
+{
+  uint32_t state;
+  LED_getState(led,&state);
+  if(state==LED_ON)
+  {
+    LED_SetState(led,LED_OFF);
+  }
+  else
+  {
+    LED_SetState(led,LED_ON);
+  }
+  
+}

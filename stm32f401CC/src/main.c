@@ -33,8 +33,9 @@
 #include "MCAL/NVIC/NVIC.h"
 #include "HAL/LED/LEDCfg.h"
 #include "HAL/LED/LED.h"
-#include "HAL/switch/switch.h"
+#include "HAL/HSWITCH/HSWITCH.h"
 #include "MCAL/STK/STK.h"
+#include  "SERVICE/Sched/Sched.h"
 /***********************************************************************************************/
 
 
@@ -57,51 +58,29 @@
 
 
 
-void Toggle_LED_GREEN(void)
-{
- 
-  uint32_t state;
-  LED_getState(LED_GREEN,&state);
-  if(state==LED_ON)
-  {
-    LED_SetState(LED_GREEN,LED_OFF);
-  }
-  else
-  {
-    LED_SetState(LED_GREEN,LED_ON);
-  }
-  
-}
+//extern void Toggle_LED_GREEN(void);
+
 int
 main()
 {
-//   uint32_t state;
-//   RCC_ControlClock(RCC_HSE,CLK_ON);
-//   RCC_SelectSysClk(RCC_HSE);
-//   RCC_ControlPeripheralClock(RCC_AHB1,GPIOBEN,CLK_ON);
-//   RCC_ControlPeripheralClock(RCC_AHB1,GPIOCEN,CLK_ON);
-//   LED_Init();
-//   Switch_Init();
+
+  RCC_ControlClock(RCC_HSE,CLK_ON);
+  RCC_SelectSysClk(RCC_HSE);
+  RCC_ControlPeripheralClock(RCC_AHB1,GPIOBEN,CLK_ON);
+  RCC_ControlPeripheralClock(RCC_AHB1,GPIOCEN,CLK_ON);
+  LED_Init();
+  Switch_Init();
+   Sched_Init();
+     Sched_Start();
 
 
 
-//   while(1)
-//   {
-//   Switch_GetState(SWITCH_1, &state);
-// if(state==SWITCH_PRESSED)
+  while(1)
+  {
 
-// {
-//   LED_SetState(LED_GREEN,LED_ON);
-// }  
-// Switch_GetState(SWITCH_2, &state);
-// if(state==SWITCH_PRESSED)
-
-// {
-//   LED_SetState(LED_GREEN,LED_OFF);
-// }  
-
-//   }
-
+  }
+}
+ 
 /*RCC_ControlClock(RCC_HSE,CLK_ON);
 RCC_SelectSysClk(RCC_HSE);
 
@@ -139,26 +118,22 @@ return 0;*/
 
 // RCC_ControlClock(RCC_HSE,CLK_ON);
 // RCC_SelectSysClk(RCC_HSE);
-RCC_ControlPeripheralClock(RCC_AHB1,GPIOAEN,CLK_ON);
-RCC_ControlPeripheralClock(RCC_AHB1,GPIOBEN,CLK_ON);
-RCC_ControlPeripheralClock(RCC_AHB1,GPIOCEN,CLK_ON);
-LED_Init();
-STK_Init(STK_AHB,STK_PERIOD_INTERVAL,16000000,Toggle_LED_GREEN);
-STK_Start();
-while(1)
-{
-
+//   RCC_ControlPeripheralClock(RCC_AHB1,GPIOAEN,CLK_ON);
+// // RCC_ControlPeripheralClock(RCC_AHB1,GPIOBEN,CLK_ON);
+//   RCC_ControlPeripheralClock(RCC_AHB1,GPIOCEN,CLK_ON);
+//   LED_Init();
+// // STK_Init(STK_AHB,STK_PERIOD_INTERVAL,16000000,Toggle_LED_GREEN);
+// // STK_Start();
  
 
 
 
-}
 
 
 
 
 
-}
+
 
 // void EXTI1_IRQHandler(void)
 // {
